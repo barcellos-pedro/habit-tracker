@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
+  --color-overlay: var(--overlay);
+  --color-habit-pine: var(--habit-pine);
+  --color-habit-pine-fg: var(--habit-pine-fg);
+  --color-habit-sage: var(--habit-sage);
+  --color-habit-sage-fg: var(--habit-sage-fg);
+  --color-habit-ocean: var(--habit-ocean);
+  --color-habit-ocean-fg: var(--habit-ocean-fg);
+  --color-habit-slate: var(--habit-slate);
+  --color-habit-slate-fg: var(--habit-slate-fg);
+  --color-habit-clay: var(--habit-clay);
+  --color-habit-clay-fg: var(--habit-clay-fg);
+  --color-habit-terra: var(--habit-terra);
+  --color-habit-terra-fg: var(--habit-terra-fg);
+  --color-habit-moss: var(--habit-moss);
+  --color-habit-moss-fg: var(--habit-moss-fg);
+  --color-habit-wine: var(--habit-wine);
+  --color-habit-wine-fg: var(--habit-wine-fg);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f3f0e8;
+  --foreground: #1a1916;
+  --card: #faf8f3;
+  --card-foreground: #1a1916;
+  --popover: #faf8f3;
+  --popover-foreground: #1a1916;
+  --primary: #2c3a34;
+  --primary-foreground: #faf8f3;
+  --secondary: #e7e1d4;
+  --secondary-foreground: #1a1916;
+  --muted: #ebe6db;
+  --muted-foreground: #6e6a62;
+  --accent: #e7e1d4;
+  --accent-foreground: #1a1916;
+  --destructive: #8f3d38;
+  --destructive-foreground: #faf8f3;
+  --border: #d8d1c3;
+  --input: #d8d1c3;
+  --ring: #3f5c4e;
+  --forest: #3f5c4e;
+  --forest-foreground: #f4f1ea;
+  --overlay: rgb(26 25 22 / 0.35);
+  --grain: rgb(26 25 22 / 0.035);
+
+  --habit-pine: #3f5c4e;
+  --habit-pine-fg: #f4f1ea;
+  --habit-sage: #5a7564;
+  --habit-sage-fg: #f4f1ea;
+  --habit-ocean: #4a6573;
+  --habit-ocean-fg: #f4f1ea;
+  --habit-slate: #5c6570;
+  --habit-slate-fg: #f4f1ea;
+  --habit-clay: #8a6556;
+  --habit-clay-fg: #f4f1ea;
+  --habit-terra: #7a5c4e;
+  --habit-terra-fg: #f4f1ea;
+  --habit-moss: #5f6b48;
+  --habit-moss-fg: #f4f1ea;
+  --habit-wine: #7a5356;
+  --habit-wine-fg: #f4f1ea;
+
+  --shadow-border:
+    0px 0px 0px 1px rgb(26 25 22 / 0.06),
+    0px 1px 2px -1px rgb(26 25 22 / 0.06),
+    0px 2px 4px 0px rgb(26 25 22 / 0.04);
+  --shadow-border-hover:
+    0px 0px 0px 1px rgb(26 25 22 / 0.08),
+    0px 1px 2px -1px rgb(26 25 22 / 0.08),
+    0px 2px 4px 0px rgb(26 25 22 / 0.06);
+
+  --color-habit-pine: var(--habit-pine);
+  --color-habit-pine-fg: var(--habit-pine-fg);
+  --color-habit-sage: var(--habit-sage);
+  --color-habit-sage-fg: var(--habit-sage-fg);
+  --color-habit-ocean: var(--habit-ocean);
+  --color-habit-ocean-fg: var(--habit-ocean-fg);
+  --color-habit-slate: var(--habit-slate);
+  --color-habit-slate-fg: var(--habit-slate-fg);
+  --color-habit-clay: var(--habit-clay);
+  --color-habit-clay-fg: var(--habit-clay-fg);
+  --color-habit-terra: var(--habit-terra);
+  --color-habit-terra-fg: var(--habit-terra-fg);
+  --color-habit-moss: var(--habit-moss);
+  --color-habit-moss-fg: var(--habit-moss-fg);
+  --color-habit-wine: var(--habit-wine);
+  --color-habit-wine-fg: var(--habit-wine-fg);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
+  --color-muted: var(--muted);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #12110e;
+  --foreground: #f3f0e8;
+  --card: #1c1b17;
+  --card-foreground: #f3f0e8;
+  --popover: #24221d;
+  --popover-foreground: #f3f0e8;
+  --primary: #e7e1d4;
+  --primary-foreground: #1a1916;
+  --secondary: #2a2823;
+  --secondary-foreground: #f3f0e8;
+  --muted: #2a2823;
+  --muted-foreground: #a8a295;
+  --accent: #2a2823;
+  --accent-foreground: #f3f0e8;
+  --destructive: #c46a64;
+  --destructive-foreground: #1a1916;
+  --border: #3a362f;
+  --input: #3a362f;
+  --ring: #8aa898;
+  --forest: #8aa898;
+  --forest-foreground: #12110e;
+  --overlay: rgb(0 0 0 / 0.55);
+  --grain: rgb(243 240 232 / 0.045);
+
+  --habit-pine: #7d9e8c;
+  --habit-pine-fg: #141311;
+  --habit-sage: #8aa894;
+  --habit-sage-fg: #141311;
+  --habit-ocean: #7f9aaa;
+  --habit-ocean-fg: #141311;
+  --habit-slate: #9aa3ad;
+  --habit-slate-fg: #141311;
+  --habit-clay: #c49584;
+  --habit-clay-fg: #141311;
+  --habit-terra: #c49a88;
+  --habit-terra-fg: #141311;
+  --habit-moss: #a3b08a;
+  --habit-moss-fg: #141311;
+  --habit-wine: #c49296;
+  --habit-wine-fg: #141311;
+
+  --shadow-border: 0 0 0 1px rgb(243 240 232 / 0.1);
+  --shadow-border-hover: 0 0 0 1px rgb(243 240 232 / 0.16);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: radial-gradient(var(--grain) 0.6px, transparent 0.6px);
+    background-size: 12px 12px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
