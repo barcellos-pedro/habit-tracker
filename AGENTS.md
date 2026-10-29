@@ -349,3 +349,38 @@ auth/db: OFF by default — sign-in, @/lib/db or migrations ONLY on an accounts 
 never:   build an app for a greeting/number/question; invent imagine_* calls;
          ask the user to run commands; delete or abandon /workspace/startup.sh
 ```
+
+## Cadence repository notes
+
+This repository's app is Cadence, a single-page habit tracker. The `/` route
+(`src/routes/index.tsx`) mounts `CadenceApp`; UI components live under
+`src/components/cadence/`, and habit types, date helpers, statistics, and the
+Zustand store live under `src/lib/habits/`. Habit data and theme preference are
+browser-local; do not add accounts or server persistence unless the requested
+product behavior requires them.
+
+Use the package scripts for checks:
+
+- `npm run dev` starts the app-builder-wrapped Vite server.
+- `npm run typecheck` runs TypeScript without emitting files.
+- `npm run build` builds the app and runs the migration script.
+- `npm test` runs the JavaScript script tests and the TypeScript tests listed
+  in `package.json`.
+- `npm run lint` runs ESLint.
+
+For focused tests, run a script test with
+`node --test scripts/preview.test.mjs`, or a TypeScript test with
+`node --experimental-strip-types --test src/lib/auth/gate-identity.test.ts`.
+New TypeScript test files must be added to the explicit TypeScript test list
+in the `test` script.
+
+Habit completion dates are local calendar dates in `YYYY-MM-DD` form. Use the
+helpers in `src/lib/habits/dates.ts` rather than UTC conversions for date-only
+values. Weekday numbers follow JavaScript (`0` Sunday through `6` Saturday),
+while the displayed week starts Monday. Keep due-day and streak calculations
+centralized in `src/lib/habits/stats.ts`; update the finite color/icon types
+and their UI mappings together when adding options.
+
+Edit route sources, not `src/routeTree.gen.ts`. Keep the shared root shell,
+preview bridge, environment wrapper, Vite port contracts, and PWA/Nitro
+integrations intact when changing app or build setup.
