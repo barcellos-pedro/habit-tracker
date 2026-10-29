@@ -1,20 +1,20 @@
 # Cadence project guidance
 
-Cadence is an account-free habit tracker. The `/` route in
-`src/routes/index.tsx` mounts `CadenceApp`; UI components are in
+Cadence is an account-free React single-page app built with Vite. Its entry
+point is `src/main.tsx`, which mounts `CadenceApp`; UI components are in
 `src/components/cadence/`, and habit types, date helpers, statistics, and
 Zustand persistence are in `src/lib/habits/`. User data and theme preference
 stay in browser storage unless a product requirement explicitly changes that.
 
 ## Commands
 
-- `npm run dev` starts the Vite/TanStack development server.
+- `npm run dev` starts the Vite development server.
 - `npm run typecheck` runs `tsc --noEmit`.
 - `npm run build` creates the production build.
 - `npm test` runs the Node test suite.
 - `npm run lint` runs ESLint.
 
-Run one script test with `node --test scripts/preview.test.mjs`. For focused
+Run one script test with `node --test scripts/browser-smoke-verdict.test.mjs`. For focused
 browser rendering checks, use `node scripts/browser-smoke.mjs`; it captures
 desktop and mobile views of the running local app.
 
@@ -32,4 +32,4 @@ desktop and mobile views of the running local app.
   after hydration.
 - Habit color and icon identifiers are finite unions in
   `src/lib/habits/types.ts`; update their UI mappings alongside those types.
-- Edit TanStack route source files, not the generated `src/routeTree.gen.ts`.
+- `index.html` owns document metadata and the pre-render theme boot script.

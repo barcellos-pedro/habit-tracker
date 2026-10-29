@@ -1,8 +1,0 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { CadenceApp } from "@/components/cadence/app";
-
-export const Route = createFileRoute("/")({ component: Home });
-
-function Home() {
-  return <CadenceApp />;
-}

@@ -2,19 +2,19 @@
 
 ## Project overview
 
-Cadence is a single-page habit tracker built with React 19 and TanStack Start. The app is intentionally account-free: habits, completion dates, and theme preference live in the browser's `localStorage`; do not add server persistence or authentication unless the product requirement explicitly changes.
+Cadence is an account-free React 19 single-page app built with Vite. Habits, completion dates, and theme preference live in the browser's `localStorage`; do not add server persistence or authentication unless the product requirement explicitly changes.
 
-The `/` file route in `src/routes/index.tsx` mounts `CadenceApp` from `src/components/cadence/`. The app UI is split into cadence-specific components, while habit types, date helpers, statistics, and Zustand state are kept in `src/lib/habits/`. The root route (`src/routes/__root.tsx`) owns document metadata, the theme boot script, and the shared shell. Keep `ThemeSync` mounted there.
+`src/main.tsx` mounts `CadenceApp` from `src/components/cadence/`; app UI is split into cadence-specific components, while habit types, date helpers, statistics, and Zustand state are kept in `src/lib/habits/`. `index.html` owns document metadata and the pre-render theme boot script. Keep `ThemeSync` mounted at the app root.
 
 ## Build, test, and lint
 
-- `npm run dev` — start the Vite/TanStack development server.
+- `npm run dev` — start the Vite development server.
 - `npm run typecheck` — run `tsc --noEmit`.
 - `npm run build` — create the production build.
 - `npm test` — run the Node test suite.
 - `npm run lint` — lint the repository with ESLint.
 
-Run one script test directly, for example: `node --test scripts/preview.test.mjs` or `node --test scripts/browser-smoke-verdict.test.mjs`. For a focused lint check, use `npx eslint src/lib/habits/stats.ts`.
+Run one script test directly, for example: `node --test scripts/browser-smoke-verdict.test.mjs`. For a focused lint check, use `npx eslint src/lib/habits/stats.ts`.
 
 ## Data and date conventions
 
@@ -26,6 +26,4 @@ Run one script test directly, for example: `node --test scripts/preview.test.mjs
 
 ## App shell and build integration
 
-TanStack file routes are registered through the generated `src/routeTree.gen.ts`; edit route source files rather than the generated tree. `src/router.tsx` exports the named `getRouter()` factory and installs the shared error component.
-
-The Vite dev server listens on `0.0.0.0:8080`; the preview server listens on `127.0.0.1:8081`. The production build uses Nitro's Vercel preset. Keep these ports and the deployment preset aligned with `vite.config.ts`.
+The Vite dev server listens on `0.0.0.0:8080`; the preview server listens on `127.0.0.1:8081`. Production builds go to `dist/`, which Netlify publishes as configured in `netlify.toml`.

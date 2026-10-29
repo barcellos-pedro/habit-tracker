@@ -34,7 +34,8 @@ npm install
 npm run dev
 ```
 
-The dev server listens on port 8080.
+The dev server listens on port 8080. Production output is written to `dist/`;
+Netlify deploys that directory using `netlify.toml`.
 
 | Command | What it does |
 | --- | --- |
@@ -47,4 +48,4 @@ The dev server listens on port 8080.
 
 ## Stack
 
-[TanStack Start](https://tanstack.com/start) and React 19, Vite, Tailwind CSS 4, and Zustand. Habit state is client-only. Dates use `date-fns`. The week starts on Monday.
+React 19, Vite, Tailwind CSS 4, and Zustand. Habit state is client-only. Dates use `date-fns`. The week starts on Monday.
